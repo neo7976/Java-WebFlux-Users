@@ -1,8 +1,8 @@
-POST http://localhost:8080/controller
+
+POST http://localhost:8080/user
 Content-Type: application/json
 
 {
-  "message": "Творим и боготворим"
+  "name" : "Алексей",
+  "telephone": "+79458544574"
 }
-
-###
