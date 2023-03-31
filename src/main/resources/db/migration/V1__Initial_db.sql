@@ -31,10 +31,12 @@ values ('Даниил', '+79999856587');
 
 create table teams
 (
-    id        bigserial primary key,
-    title     varchar(255) unique,
-    depiction varchar(1024) unique ,
-    logo      varchar(1024)
+    id bigserial PRIMARY KEY,
+    title VARCHAR(255) NOT NULL unique,
+    description TEXT,
+    logo VARCHAR(255),
+    creation_date timestamp with time zone default now(),
+    total_users INT
 );
 
 CREATE TABLE teamMembers
@@ -49,7 +51,7 @@ CREATE TABLE teamMembers
 -- ALTER TABLE Teams ADD COLUMN user_list TEXT;
 
 
-INSERT INTO teams (id, title, depiction) VALUES (1, 'Team A', 'Команда из Рязани');
+INSERT INTO teams (id, title, description, creation_date, total_users) VALUES (1, 'Team A', 'Команда из Рязани', '2022.12.10', 2);
 INSERT INTO teamMembers (team_id, user_id) VALUES (1, 1);
 INSERT INTO teamMembers (team_id, user_id) VALUES (1, 2);
 

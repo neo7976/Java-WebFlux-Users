@@ -1,13 +1,16 @@
 package ru.sobinda.catalizator.model;
 
+import io.r2dbc.spi.Parameter;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-import java.util.List;
+import java.time.Instant;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -19,8 +22,22 @@ public class Team {
     @Id
     private long id;
     private String title;
-    private String depiction;
+    private String description;
     private byte[] logo;
 
-//    private List<User> user;
+    @Column("creation_date")
+    private Instant creationDate;
+
+    @Column("total_users")
+    private int totalUsers;
+
+    public Team(Team team) {
+    }
+
+    //    private List<User> user;
+
+    public int getTotalUsersAndIncrement() {
+        return totalUsers + 1;
+    }
+
 }

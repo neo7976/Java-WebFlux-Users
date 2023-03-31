@@ -29,7 +29,6 @@ public class UserController {
 
     @GetMapping("/id/{id}")
     public Mono<User> findById(@PathVariable Long id) {
-        System.out.println("Не дошли");
         return userService.findById(id);
     }
 

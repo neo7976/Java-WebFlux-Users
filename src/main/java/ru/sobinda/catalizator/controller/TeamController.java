@@ -23,9 +23,25 @@ public class TeamController {
     }
 
 
-    @PostMapping("/add")
+    @PostMapping("/addTeam")
     public Mono<Team> addTeam(@RequestBody Team team) {
         return teamService.addTeam(team);
     }
+
+    @GetMapping("/id/{id}")
+    public Mono<Team> findTeamById(@PathVariable Long id) {
+        return teamService.findTeamById(id);
+    }
+
+    @GetMapping("/title/{title}")
+    public Mono<Team> findTeamByTitle(@PathVariable String title) {
+        return teamService.findTeamByTitle(title);
+    }
+
+    @GetMapping("/add-user-for-team")
+    public Mono<Team> addUserForTeam(@RequestParam("id_user") Long idUser, @RequestParam("id_team") Long idTeam) {
+        return teamService.addUserForTeam(idUser, idTeam);
+    }
+
 
 }
