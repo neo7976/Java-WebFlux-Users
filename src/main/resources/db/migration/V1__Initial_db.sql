@@ -33,8 +33,8 @@ create table teams
 (
     id        bigserial primary key,
     title     varchar(255) unique,
-    depiction varchar(1024),
-    logo      varchar(1024) unique
+    depiction varchar(1024) unique ,
+    logo      varchar(1024)
 );
 
 CREATE TABLE teamMembers
@@ -46,7 +46,10 @@ CREATE TABLE teamMembers
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
+-- ALTER TABLE Teams ADD COLUMN user_list TEXT;
+
 
 INSERT INTO teams (id, title, depiction) VALUES (1, 'Team A', 'Команда из Рязани');
 INSERT INTO teamMembers (team_id, user_id) VALUES (1, 1);
 INSERT INTO teamMembers (team_id, user_id) VALUES (1, 2);
+

@@ -21,4 +21,12 @@ public class UserService {
     public Mono<User> addUser(User user) {
         return userRepo.save(user);
     }
+
+    public Mono<User> findById(long id) {
+       return userRepo.findById(id);
+    }
+
+    public Mono<User> findByName(String name) {
+        return userRepo.findByName(name);
+    }
 }

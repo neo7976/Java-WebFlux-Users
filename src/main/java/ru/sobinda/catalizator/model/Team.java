@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,5 +21,6 @@ public class Team {
     private String title;
     private String depiction;
     private byte[] logo;
-    private User user;
+
+//    private List<User> user;
 }

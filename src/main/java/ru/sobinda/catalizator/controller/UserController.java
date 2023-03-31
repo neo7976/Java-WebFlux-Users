@@ -14,16 +14,27 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping
+    @GetMapping("/all")
     public Flux<User> list(
             @RequestParam(defaultValue = "0") Long start,
-            @RequestParam(defaultValue = "3") Long count
+            @RequestParam(defaultValue = "5") Long count
     ) {
-        return userService.list();
+        return userService.list().skip(start).take(count);
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public Mono<User> add(@RequestBody User user) {
         return userService.addUser(user);
+    }
+
+    @GetMapping("/id/{id}")
+    public Mono<User> findById(@PathVariable Long id) {
+        System.out.println("Не дошли");
+        return userService.findById(id);
+    }
+
+    @GetMapping("/name/{name}")
+    public Mono<User> findByName(@PathVariable String name) {
+        return userService.findByName(name);
     }
 }
