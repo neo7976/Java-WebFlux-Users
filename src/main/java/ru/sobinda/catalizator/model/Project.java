@@ -5,8 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 
 import java.time.Instant;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -17,9 +19,11 @@ public class Project {
     @Id
     private long id;
     private String title;
-    private Team team;
-    private String depiction;
+//    private List<Team> team;
+    private String description;
     private byte[] logo;
-    private Instant start;
-    private Instant end;
+    @Column("creation_date")
+    private Instant creationDate;
+    @Column("completion_date")
+    private Instant completionDate;
 }

@@ -27,6 +27,6 @@ public class UserService {
     }
 
     public Mono<User> findByName(String name) {
-        return userRepo.findByName(name);
+        return userRepo.findByNameIgnoreCase(name);
     }
 }

@@ -34,7 +34,7 @@ public class TeamService {
     }
 
     public Mono<Team> findTeamByTitle(String title) {
-        return teamRepo.findByTitle(title);
+        return teamRepo.findByTitleEqualsIgnoreCase(title);
     }
 
 //    @SneakyThrows

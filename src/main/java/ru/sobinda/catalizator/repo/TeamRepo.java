@@ -7,7 +7,7 @@ import reactor.core.publisher.Mono;
 import ru.sobinda.catalizator.model.Team;
 
 public interface TeamRepo extends ReactiveCrudRepository<Team, Long> {
-    Mono<Team> findByTitle(String title);
+    Mono<Team> findByTitleEqualsIgnoreCase(String title);
 
 
     @Query(value = "insert into teammembers(team_id, user_id) VALUES (:team_id, :user_id)")

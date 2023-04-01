@@ -38,10 +38,10 @@ public class TeamController {
         return teamService.findTeamByTitle(title);
     }
 
-    @GetMapping("/add-user-for-team")
-    public Mono<Team> addUserForTeam(@RequestParam("id_user") Long idUser, @RequestParam("id_team") Long idTeam) {
-        return teamService.addUserForTeam(idUser, idTeam);
-    }
+//    @GetMapping("/add-user-for-team")
+//    public Mono<Team> addUserForTeam(@RequestParam("id_user") Long idUser, @RequestParam("id_team") Long idTeam) {
+//        return teamService.addUserForTeam(idUser, idTeam);
+//    }
 
 
 }

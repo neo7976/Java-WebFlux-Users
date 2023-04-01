@@ -30,10 +30,6 @@ public class Team {
 
     @Column("total_users")
     private int totalUsers;
-
-    public Team(Team team) {
-    }
-
     //    private List<User> user;
 
     public int getTotalUsersAndIncrement() {
