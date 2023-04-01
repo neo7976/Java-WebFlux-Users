@@ -4,10 +4,6 @@ create table message
     message varchar(1024)
 );
 
-insert into message(message)
-values ('Как дела товарищи????');
-
-
 create table users
 (
     id               bigserial primary key,

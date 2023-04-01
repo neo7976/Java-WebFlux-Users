@@ -1,0 +1,40 @@
+version: '3.7'
+services:
+
+  projects-teams-users-bd:
+    container_name: projects-teams-users
+    image: postgres:latest
+    networks:
+      - cloud-network
+    environment:
+      - POSTGRES_USER=cloudPeople
+      - POSTGRES_PASSWORD=soCloudPass
+      - POSTGRES_DB=projects_teams_users
+    volumes:
+      - dbvol:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: always
+
+  server-app:
+      container_name: project-app-spring-by-sobin
+      build: ./
+      networks:
+        - cloud-network
+      depends_on:
+        - projects-teams-users-bd
+      environment:
+        - POSTGRES_HOST=projects-teams-users-bd
+        - POSTGRES_USER=cloudPeople
+        - POSTGRES_PASSWORD=soCloudPass
+        - POSTGRES_DB=projects_teams_users
+        - POSTGRES_PORT=5432
+      ports:
+        - "8080:8080"
+
+networks:
+  cloud-network:
+    name: cloud-network
+
+volumes:
+  dbvol:
