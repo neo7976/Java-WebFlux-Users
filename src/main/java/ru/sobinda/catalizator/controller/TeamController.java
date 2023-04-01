@@ -34,8 +34,13 @@ public class TeamController {
     }
 
     @GetMapping("/title/{title}")
-    public Mono<Team> findTeamByTitle(@PathVariable String title) {
+    public Flux<Team> findTeamByTitle(@PathVariable String title) {
         return teamService.findTeamByTitle(title);
+    }
+
+    @GetMapping("/description/{description}")
+    public Flux<Team> findTeamByDescription(@PathVariable String description) {
+        return teamService.findTeamByDescription(description);
     }
 
 //    @GetMapping("/add-user-for-team")

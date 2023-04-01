@@ -33,8 +33,12 @@ public class TeamService {
         return teamRepo.findById(id);
     }
 
-    public Mono<Team> findTeamByTitle(String title) {
-        return teamRepo.findByTitleEqualsIgnoreCase(title);
+    public Flux<Team> findTeamByTitle(String title) {
+        return teamRepo.findByTitleContainingIgnoreCase(title);
+    }
+
+    public Flux<Team> findTeamByDescription(String description) {
+        return teamRepo.findByDescriptionContainingIgnoreCase(description);
     }
 
 //    @SneakyThrows

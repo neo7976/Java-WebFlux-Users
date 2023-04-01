@@ -33,7 +33,7 @@ public class UserController {
     }
 
     @GetMapping("/name/{name}")
-    public Mono<User> findByName(@PathVariable String name) {
+    public Flux<User> findByName(@PathVariable String name) {
         return userService.findByName(name);
     }
 }

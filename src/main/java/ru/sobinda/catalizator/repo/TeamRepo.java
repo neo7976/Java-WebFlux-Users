@@ -3,11 +3,12 @@ package ru.sobinda.catalizator.repo;
 import org.springframework.data.r2dbc.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import ru.sobinda.catalizator.model.Team;
 
 public interface TeamRepo extends ReactiveCrudRepository<Team, Long> {
-    Mono<Team> findByTitleEqualsIgnoreCase(String title);
+    Flux<Team> findByTitleContainingIgnoreCase(String title);
 
 
     @Query(value = "insert into teammembers(team_id, user_id) VALUES (:team_id, :user_id)")
@@ -15,4 +16,6 @@ public interface TeamRepo extends ReactiveCrudRepository<Team, Long> {
             @Param("team_id") long teamId,
             @Param("user_id") long userId
     );
+
+    Flux<Team> findByDescriptionContainingIgnoreCase(String description);
 }

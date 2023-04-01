@@ -26,7 +26,7 @@ public class UserService {
        return userRepo.findById(id);
     }
 
-    public Mono<User> findByName(String name) {
-        return userRepo.findByNameIgnoreCase(name);
+    public Flux<User> findByName(String name) {
+        return userRepo.findByNameContainingIgnoreCase(name);
     }
 }
