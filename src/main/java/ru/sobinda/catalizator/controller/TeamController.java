@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import ru.sobinda.catalizator.model.Team;
+import ru.sobinda.catalizator.model.User;
 import ru.sobinda.catalizator.service.TeamService;
 
 @RequiredArgsConstructor
@@ -41,6 +42,11 @@ public class TeamController {
     @GetMapping("/description/{description}")
     public Flux<Team> findTeamByDescription(@PathVariable String description) {
         return teamService.findTeamByDescription(description);
+    }
+
+    @GetMapping("/id/{id}/users")
+    public Flux<User> findUsersByTeamId(@PathVariable Long id) {
+        return teamService.findUsersByTeamId(id);
     }
 
 //    @GetMapping("/add-user-for-team")

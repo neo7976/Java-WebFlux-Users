@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import ru.sobinda.catalizator.model.Project;
+import ru.sobinda.catalizator.model.Team;
+import ru.sobinda.catalizator.model.User;
 import ru.sobinda.catalizator.service.ProjectService;
 
 @RestController
@@ -29,6 +31,11 @@ public class ProjectController {
     @GetMapping("/title/{title}")
     public Mono<Project> findByTitle(@PathVariable String title){
         return projectService.findByTitle(title);
+    }
+
+    @GetMapping("/id/{id}/teams")
+    public Flux<Team> findTeamsByProjectId(@PathVariable Long id) {
+        return projectService.findTeamsByProjectId(id);
     }
 
     @GetMapping("/description/{description}")

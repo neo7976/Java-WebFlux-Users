@@ -32,8 +32,7 @@ public class Team {
     private int totalUsers;
     //    private List<User> user;
 
-    public int getTotalUsersAndIncrement() {
-        return totalUsers + 1;
-    }
-
+//    public int getTotalUsersAndIncrement() {
+//        return totalUsers + 1;
+//    }
 }

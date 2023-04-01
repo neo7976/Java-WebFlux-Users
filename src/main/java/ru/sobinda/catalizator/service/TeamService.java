@@ -41,6 +41,10 @@ public class TeamService {
         return teamRepo.findByDescriptionContainingIgnoreCase(description);
     }
 
+    public Flux<User> findUsersByTeamId(Long id) {
+        return userRepo.findAllUsersByTeamId(id);
+    }
+
 //    @SneakyThrows
 //    @Transactional
 //    public Mono<Team> addUserForTeam(Long idUser, Long idTeam) {

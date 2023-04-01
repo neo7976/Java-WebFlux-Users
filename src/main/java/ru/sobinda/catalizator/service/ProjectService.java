@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import ru.sobinda.catalizator.model.Project;
+import ru.sobinda.catalizator.model.Team;
+import ru.sobinda.catalizator.model.User;
 import ru.sobinda.catalizator.repo.ProjectRepo;
 
 @Service
@@ -28,5 +30,9 @@ public class ProjectService {
 
     public Flux<Project> findByDescription(String description) {
         return projectRepo.findByDescriptionContainingIgnoreCase(description);
+    }
+
+    public Flux<Team> findTeamsByProjectId(Long id) {
+        return projectRepo.findTeamsByProjectId(id);
     }
 }

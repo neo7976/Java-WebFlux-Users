@@ -13,7 +13,7 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/user/all
+GET http://localhost:8080/user/all?count=100
 Accept: application/json
 
 ###
@@ -42,6 +42,10 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8080/team/id/1
+Accept: application/json
+
+###
+GET http://localhost:8080/team/id/1/users
 Accept: application/json
 
 ###
@@ -77,6 +81,10 @@ Accept: application/json
 ###
 
 GET http://localhost:8080/project/id/1
+Accept: application/json
+
+###
+GET http://localhost:8080/project/id/2/teams
 Accept: application/json
 
 ###
